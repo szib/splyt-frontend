@@ -1,12 +1,15 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: theme.spacing(2,8)
+    margin: theme.spacing(2,8),
+    padding: theme.spacing(2, 4),
+    zIndex: 100,
   },
 }));
 
@@ -17,7 +20,7 @@ const valuetext = (value) => `${value} taxis`;
 const TaxiSlider = ({onChange, disabled}) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <Paper elevation={6} className={classes.root}>
       <Typography gutterBottom>
         Number of taxis
       </Typography>
@@ -33,7 +36,7 @@ const TaxiSlider = ({onChange, disabled}) => {
         onChangeCommitted={(_,value) => onChange(value)}
         disabled={disabled}
       />
-    </div>
+    </Paper>
   )
 }
 
