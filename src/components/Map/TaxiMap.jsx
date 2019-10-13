@@ -1,22 +1,17 @@
 import React from "react";
 import { Map, TileLayer } from "react-leaflet";
 
-import { useAPI, useParams } from 'react-api-hooks'
-
 import 'leaflet/dist/leaflet.css';
 
+import useSplytApi from '../../hooks/useSplytApi'
 import TaxiMarker from './TaxiMarker'
 
 const position = [51.5049375, -0.0964509];
 const zoom = 14;
 
 const MainMap = () => {
-  const apiUrl = `https://qa-interview-test.qa.splytech.io/api/drivers?latitude=51.5049375&longitude=-0.0964509`;
-  const corsAnywhereUrl = `https://cors-anywhere.herokuapp.com/`;
-  const url = `${corsAnywhereUrl}${apiUrl}`;
-
-  const { params, updateParams } = useParams({ count: 10 })
-  const { data, isLoading, error } = useAPI(url, { params })
+  const api = useSplytApi({ count: 10 });
+  const { data, isLoading, error, params, updateParams } = api
 
   if (error) {
     return <div>API Error</div>
