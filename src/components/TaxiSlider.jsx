@@ -7,17 +7,17 @@ import Slider from '@material-ui/core/Slider';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: theme.spacing(2,8),
+    margin: theme.spacing(2, 8),
     padding: theme.spacing(2, 4),
     zIndex: 100,
   },
 }));
 
-const marks = [1,10,20,30,40,50].reduce((arr,v) => arr = [...arr, {value: v, label: `${v}` }], [])
+const marks = [1, 10, 20, 30, 40, 50].reduce((arr, v) => arr = [...arr, { value: v, label: `${v}` }], [])
 
 const valuetext = (value) => `${value} taxis`;
 
-const TaxiSlider = ({onChange, disabled}) => {
+const TaxiSlider = ({ onChange, disabled, initialValue }) => {
   const classes = useStyles();
   return (
     <Paper elevation={6} className={classes.root}>
@@ -25,7 +25,7 @@ const TaxiSlider = ({onChange, disabled}) => {
         Number of taxis
       </Typography>
       <Slider
-        defaultValue={10}
+        defaultValue={initialValue}
         getAriaValueText={valuetext}
         aria-labelledby="taxi-slider"
         valueLabelDisplay="auto"
@@ -33,7 +33,7 @@ const TaxiSlider = ({onChange, disabled}) => {
         marks={marks}
         min={1}
         max={50}
-        onChangeCommitted={(_,value) => onChange(value)}
+        onChangeCommitted={(_, value) => onChange(value)}
         disabled={disabled}
       />
     </Paper>
