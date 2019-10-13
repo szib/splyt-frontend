@@ -16,10 +16,12 @@ L.Marker.prototype.options.icon = DefaultIcon;
 // END: Fix importing images for icon
 
 const TaxiMarker = (props) => {
-  const { position, popupHtml } = props
+  const { driver } = props
+  const { driver_id, location } = driver
+  const { latitude, longitude, bearing } = location
   return (
-    <Marker position={position}>
-      {popupHtml && <Popup>{popupHtml}</Popup>}
+    <Marker position={[latitude, longitude]}>
+      <Popup><h1>{driver_id}</h1><h3>Bearing: {bearing}</h3></Popup>
     </Marker>
   )
 }

@@ -5,6 +5,7 @@
   "dependencies": {
     "leaflet": "^1.5.1",
     "react": "^16.10.2",
+    "react-api-hooks": "^0.2.2",
     "react-dom": "^16.10.2",
     "react-leaflet": "^2.4.0",
     "react-scripts": "3.2.0"
