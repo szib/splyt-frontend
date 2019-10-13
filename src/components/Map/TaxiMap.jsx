@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 
 import useSplytApi from '../../hooks/useSplytApi'
 import TaxiMarker from './TaxiMarker'
+import TaxiSlider from './TaxiSlider'
 
 const position = [51.5049375, -0.0964509];
 const zoom = 14;
@@ -17,6 +18,10 @@ const MainMap = () => {
     return <div>API Error</div>
   }
 
+  const sliderChangeHandler = (value) => {
+    updateParams({ count: value })
+  }
+
   return (
     <>
       <Map center={position} zoom={zoom}>
@@ -26,8 +31,7 @@ const MainMap = () => {
         />
         {!isLoading && data.drivers.map((driver, idx) => <TaxiMarker driver={driver} key={idx} />)}
       </Map>
-      <button onClick={() => updateParams({ count: params.count + 1 })}>Increment</button>
-      {isLoading && <div>Loading...</div>}
+      <TaxiSlider onChange={sliderChangeHandler} disabled={isLoading} />
     </>
   );
 

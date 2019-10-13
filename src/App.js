@@ -9,7 +9,7 @@ import "./App.css";
 
 const useStyles = makeStyles(theme => ({
   header: {
-    margin: theme.spacing(6, 0, 3),
+    margin: theme.spacing(3, 0),
     textAlign: "center"
   }
 }));
