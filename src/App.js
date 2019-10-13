@@ -1,15 +1,35 @@
 import React from "react";
 
+import useSplytApi from "./hooks/useSplytApi";
+
 import TaxiMap from "./components/Map/TaxiMap";
+import TaxiSlider from "./components/TaxiSlider";
 
 import "./App.css";
 
+const initialCount = 10;
+
 function App() {
+  const api = useSplytApi({ count: initialCount });
+  const { isLoading, error, updateParams } = api;
+
+  const sliderChangeHandler = value => {
+    updateParams({ count: value });
+  };
+
+  if (error) {
+    return <div>API Error</div>;
+  }
+
   return (
-    <div className="App">
-      <h1>Splyt Taxi Map</h1>
-      <TaxiMap />
-    </div>
+    <>
+      <TaxiMap {...api} />
+      <TaxiSlider
+        onChange={sliderChangeHandler}
+        disabled={isLoading}
+        initialValue={initialCount}
+      />
+    </>
   );
 }
 
