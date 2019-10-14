@@ -3,7 +3,7 @@ import React from "react";
 import useSplytApi from "./hooks/useSplytApi";
 
 import TaxiMap from "./components/Map/TaxiMap";
-import TaxiSlider from "./components/TaxiSlider";
+import TaxiSlider from "./components/AppBar";
 
 import "./App.css";
 
