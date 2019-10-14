@@ -11,7 +11,7 @@ const zoom = 14;
 const MainMap = ({ data, isLoading }) => {
   return (
     <>
-      <Map center={position} zoom={zoom}>
+      <Map center={position} zoom={zoom} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"

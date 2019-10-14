@@ -23,12 +23,12 @@ function App() {
 
   return (
     <>
-      <TaxiMap {...api} />
       <TaxiSlider
+        count={api.params.count}
         onChange={sliderChangeHandler}
         disabled={isLoading}
-        initialValue={initialCount}
       />
+      <TaxiMap {...api} />
     </>
   );
 }
