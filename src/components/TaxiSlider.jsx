@@ -1,29 +1,30 @@
-import React from 'react'
+import React from "react";
 
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Slider from "@material-ui/core/Slider";
 
 const useStyles = makeStyles(theme => ({
   root: {
     margin: theme.spacing(2, 8),
     padding: theme.spacing(2, 4),
-    zIndex: 100,
-  },
+    zIndex: 100
+  }
 }));
 
-const marks = [1, 10, 20, 30, 40, 50].reduce((arr, v) => arr = [...arr, { value: v, label: `${v}` }], [])
+const marks = [1, 10, 20, 30, 40, 50].reduce(
+  (arr, v) => (arr = [...arr, { value: v, label: `${v}` }]),
+  []
+);
 
-const valuetext = (value) => `${value} taxis`;
+const valuetext = value => `${value} taxis`;
 
 const TaxiSlider = ({ onChange, disabled, initialValue }) => {
   const classes = useStyles();
   return (
     <Paper elevation={6} className={classes.root}>
-      <Typography gutterBottom>
-        Number of taxis
-      </Typography>
+      <Typography gutterBottom>Number of taxis</Typography>
       <Slider
         defaultValue={initialValue}
         getAriaValueText={valuetext}
@@ -37,7 +38,7 @@ const TaxiSlider = ({ onChange, disabled, initialValue }) => {
         disabled={disabled}
       />
     </Paper>
-  )
-}
+  );
+};
 
-export default TaxiSlider
+export default TaxiSlider;

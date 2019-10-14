@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 import { Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
+import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
 
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
@@ -13,10 +13,10 @@ let DefaultIcon = L.icon({
   shadowUrl: iconShadow
 });
 
-const TaxiMarker = (props) => {
-  const { driver } = props
-  const { driver_id, location } = driver
-  const { latitude, longitude, bearing } = location
+const TaxiMarker = props => {
+  const { driver } = props;
+  const { driver_id, location } = driver;
+  const { latitude, longitude, bearing } = location;
   return (
     <Marker position={[latitude, longitude]} icon={DefaultIcon}>
       <Popup>
@@ -25,7 +25,7 @@ const TaxiMarker = (props) => {
         <p>Bearing: {bearing}</p>
       </Popup>
     </Marker>
-  )
-}
+  );
+};
 
-export default TaxiMarker
+export default TaxiMarker;
