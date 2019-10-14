@@ -25,7 +25,7 @@ const TaxiAppBar = ({ onChange, disabled, count }) => {
       elevation={20}
     >
       <Toolbar>
-        <TaxiIcon fontSize="large" color="secondary" />
+        <TaxiIcon fontSize="large" color="primary" />
         <TaxiSlider count={count} disabled={disabled} onChange={onChange} />
       </Toolbar>
     </AppBar>

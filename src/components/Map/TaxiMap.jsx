@@ -1,7 +1,10 @@
 import React from "react";
-import { Map, TileLayer } from "react-leaflet";
 
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { SplytIcon } from "./icons";
+import HomeIcon from "@material-ui/icons/Home";
+import Typography from "@material-ui/core/Typography";
 
 import TaxiMarker from "./TaxiMarker";
 
@@ -17,6 +20,14 @@ const MainMap = ({ data, isLoading, splytHQ }) => {
           data.drivers.map((driver, idx) => (
             <TaxiMarker driver={driver} key={idx} splytHQ={splytHQ} />
           ))}
+        <Marker position={splytHQ.toArray()} icon={SplytIcon}>
+          <Popup>
+            <HomeIcon color="primary" fontSize="large" />
+            <Typography variant="h6" color="primary">
+              Splyt HQ
+            </Typography>
+          </Popup>
+        </Marker>
       </Map>
     </>
   );
