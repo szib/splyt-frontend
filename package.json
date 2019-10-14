@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
+    "haversine": "^1.1.1",
     "leaflet": "^1.5.1",
     "react": "^16.10.2",
     "react-api-hooks": "^0.2.2",

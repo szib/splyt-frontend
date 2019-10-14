@@ -5,20 +5,17 @@ import "leaflet/dist/leaflet.css";
 
 import TaxiMarker from "./TaxiMarker";
 
-const position = [51.5049375, -0.0964509];
-const zoom = 14;
-
-const MainMap = ({ data, isLoading }) => {
+const MainMap = ({ data, isLoading, splytHQ }) => {
   return (
     <>
-      <Map center={position} zoom={zoom} scrollWheelZoom={false}>
+      <Map center={splytHQ.toArray()} zoom={14} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
         />
         {!isLoading &&
           data.drivers.map((driver, idx) => (
-            <TaxiMarker driver={driver} key={idx} />
+            <TaxiMarker driver={driver} key={idx} splytHQ={splytHQ} />
           ))}
       </Map>
     </>
