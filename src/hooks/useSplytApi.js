@@ -1,18 +1,60 @@
-import { useAPI, useParams } from "react-api-hooks";
+import { useState } from "react";
+
+import useAxios from "@use-hooks/axios";
 
 import Position from "../lib/Position";
 
-const useSplytApi = ({ count }) => {
+const sortByDistance = (a, b) => a.distance - b.distance;
+
+const initialData = {
+  pickup_eta: null,
+  drivers: []
+};
+
+const useSplytApi = () => {
+  const [count, setCount] = useState(50);
+  const [shown, setShown] = useState(50);
+
   const splytHQ = new Position(51.5049375, -0.0964509);
 
-  const apiUrl = `https://qa-interview-test.qa.splytech.io/api/drivers?${splytHQ.queryString()}`;
+  const apiUrl = `https://qa-interview-test.qa.splytech.io/api/drivers`;
   const corsAnywhereUrl = `https://cors-anywhere.herokuapp.com/`;
   const url = `${corsAnywhereUrl}${apiUrl}`;
 
-  const paramsObj = useParams({ count });
-  const apiObj = useAPI(url, { params: paramsObj.params });
+  const { response, loading, error, reFetch } = useAxios({
+    url: url,
+    method: "GET",
+    options: {
+      params: { count, latitude: splytHQ.lat, longitude: splytHQ.long }
+    },
+    trigger: { count },
+    forceDispatchEffect: () => !!count // AUTO RUN only if gender is set
+  });
 
-  return { ...apiObj, ...paramsObj, splytHQ };
+  const { data } = response || initialData;
+
+  if (data && data.drivers) {
+    const { drivers } = data;
+    data.drivers = drivers
+      .map(driver => {
+        const { location } = driver;
+        const pos = new Position(location.latitude, location.longitude);
+        return { ...driver, distance: pos.distanceTo(splytHQ) };
+      })
+      .sort(sortByDistance);
+  }
+
+  return {
+    data,
+    loading,
+    error,
+    splytHQ,
+    reFetch,
+    count,
+    setCount,
+    shown,
+    setShown
+  };
 };
 
 export default useSplytApi;
