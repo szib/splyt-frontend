@@ -1,9 +1,8 @@
-import { HomeMarker } from "./HomeMarker";
 import React from "react";
-
 import { Map, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
+import HomeMarker from "./HomeMarker";
 import TaxiMarkers from "./TaxiMarkers";
 
 const MainMap = ({ api }) => {

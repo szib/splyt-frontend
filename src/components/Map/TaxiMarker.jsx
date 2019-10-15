@@ -1,10 +1,10 @@
 import React from "react";
-
 import { Marker, Popup } from "react-leaflet";
-import { PinIcon } from "./icons";
 
 import Typography from "@material-ui/core/Typography";
 import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
+
+import { PinIcon } from "./icons";
 
 const TaxiMarker = props => {
   const { driver } = props;
