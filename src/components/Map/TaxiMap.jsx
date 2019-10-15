@@ -7,7 +7,7 @@ import "leaflet/dist/leaflet.css";
 import TaxiMarkers from "./TaxiMarkers";
 
 const MainMap = ({ api }) => {
-  const { data, loading, splytHQ, shown } = api;
+  const { drivers, loading, splytHQ, shown, processDrivers } = api;
 
   return (
     <>
@@ -16,8 +16,8 @@ const MainMap = ({ api }) => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
         />
-        {!loading && data && data.drivers && (
-          <TaxiMarkers drivers={data.drivers} shown={shown} />
+        {!loading && (
+          <TaxiMarkers drivers={processDrivers(drivers)} shown={shown} />
         )}
         <HomeMarker splytHQ={splytHQ} />
       </Map>
