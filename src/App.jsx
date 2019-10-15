@@ -5,23 +5,12 @@ import useSplytApi from "./hooks/useSplytApi";
 import TaxiMap from "./components/Map/TaxiMap";
 import AppBar from "./components/AppBar/AppBar";
 
+import ErrorPage from "./pages/Error";
+
 function App() {
   const api = useSplytApi();
 
-  if (api.error) {
-    return (
-      <>
-        <h1>
-          Error{" "}
-          <span role="img" aria-label="sad face">
-            😩
-          </span>
-        </h1>
-        <h2>Please reload the page</h2>
-        <div>{api.error.toString()}</div>
-      </>
-    );
-  }
+  if (api.error) return <ErrorPage error={api.error} />;
 
   return (
     <>
