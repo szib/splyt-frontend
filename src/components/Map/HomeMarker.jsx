@@ -1,12 +1,12 @@
 import React from "react";
+import { Marker, Popup } from "react-leaflet";
 
 import HomeIcon from "@material-ui/icons/Home";
 import Typography from "@material-ui/core/Typography";
 
-import { Marker, Popup } from "react-leaflet";
 import { SplytIcon } from "./icons";
 
-export function HomeMarker({ splytHQ }) {
+function HomeMarker({ splytHQ }) {
   return splytHQ ? (
     <Marker position={splytHQ.toArray()} icon={SplytIcon}>
       <Popup>
@@ -18,3 +18,5 @@ export function HomeMarker({ splytHQ }) {
     </Marker>
   ) : null;
 }
+
+export default HomeMarker;
