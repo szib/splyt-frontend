@@ -3,9 +3,7 @@ import * as R from "ramda";
 import useAxios from "@use-hooks/axios";
 import Position from "../lib/Position";
 
-const apiUrl = `https://qa-interview-test.qa.splytech.io/api/drivers`;
-const corsAnywhereUrl = `https://cors-anywhere.herokuapp.com/`;
-const url = `${corsAnywhereUrl}${apiUrl}`;
+const url = `http://localhost:8080/https://qa-interview-test.qa.splytech.io/api/drivers`;
 const splytHQ = new Position(51.5049375, -0.0964509);
 
 const distanceToSplytHQ = driver => {
