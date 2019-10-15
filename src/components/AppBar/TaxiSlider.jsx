@@ -29,7 +29,7 @@ const TaxiSlider = ({ count, disabled, onChange }) => {
       marks={marks}
       min={0}
       max={count}
-      onChangeCommitted={(_, value) => onChange(value)}
+      onChange={(_, value) => onChange(value)}
       disabled={disabled}
     />
   );
