@@ -5,6 +5,11 @@ import useAxios from "@use-hooks/axios";
 import Position from "../lib/Position";
 
 const sortByDistance = (a, b) => a.distance - b.distance;
+const addDistance = (driver, splytHQ) => {
+  const { location } = driver;
+  const pos = new Position(location.latitude, location.longitude);
+  return { ...driver, distance: pos.distanceTo(splytHQ) };
+};
 
 const initialData = {
   pickup_eta: null,
@@ -36,11 +41,7 @@ const useSplytApi = () => {
   if (data && data.drivers) {
     const { drivers } = data;
     data.drivers = drivers
-      .map(driver => {
-        const { location } = driver;
-        const pos = new Position(location.latitude, location.longitude);
-        return { ...driver, distance: pos.distanceTo(splytHQ) };
-      })
+      .map(driver => addDistance(driver, splytHQ))
       .sort(sortByDistance);
   }
 

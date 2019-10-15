@@ -7,11 +7,7 @@ import "leaflet/dist/leaflet.css";
 import TaxiMarkers from "./TaxiMarkers";
 
 const MainMap = ({ api }) => {
-  const { data, loading, error, splytHQ, shown } = api;
-
-  if (error) {
-    return <div>API Error</div>;
-  }
+  const { data, loading, splytHQ, shown } = api;
 
   return (
     <>

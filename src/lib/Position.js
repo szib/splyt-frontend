@@ -26,10 +26,6 @@ class Position {
       unit: "km"
     }).toFixed(2);
   }
-
-  queryString() {
-    return `latitude=${this.lat}&longitude=${this.long}`;
-  }
 }
 
 export default Position;

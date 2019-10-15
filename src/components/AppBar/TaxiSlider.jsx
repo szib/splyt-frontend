@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const marks = [1, 10, 20, 30, 40, 50].reduce(
+const marks = [0, 10, 20, 30, 40, 50].reduce(
   (arr, v) => (arr = [...arr, { value: v, label: `${v}` }]),
   []
 );
@@ -28,8 +28,8 @@ const TaxiSlider = ({ count, disabled, onChange }) => {
       valueLabelDisplay={disabled ? "off" : "on"}
       step={1}
       marks={marks}
-      min={1}
-      max={50}
+      min={0}
+      max={count}
       onChangeCommitted={(_, value) => onChange(value)}
       disabled={disabled}
     />

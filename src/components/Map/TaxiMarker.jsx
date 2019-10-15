@@ -19,7 +19,7 @@ const TaxiMarker = props => {
           Distance: {distance} km
         </Typography>
         <Typography variant="h6" color="primary">
-          Bearing: {bearing}
+          Bearing: {bearing}º
         </Typography>
       </Popup>
     </Marker>

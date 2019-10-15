@@ -9,6 +9,6 @@ export const PinIcon = L.icon({
 });
 
 export const SplytIcon = L.icon({
-  iconUrl: splytIcon
-  // shadowUrl: iconShadow
+  iconUrl: splytIcon,
+  shadowUrl: iconShadow
 });
