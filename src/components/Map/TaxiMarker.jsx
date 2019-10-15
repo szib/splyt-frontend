@@ -15,10 +15,10 @@ const TaxiMarker = props => {
     <Marker position={[latitude, longitude]} icon={PinIcon}>
       <Popup>
         <LocalTaxiIcon color="primary" fontSize="large" />
-        <Typography variant="h6" color="primary">
+        <Typography variant="subtitle2" component="div" color="primary">
           Distance: {distance} km
         </Typography>
-        <Typography variant="h6" color="primary">
+        <Typography variant="subtitle2" component="div" color="primary">
           Bearing: {bearing}º
         </Typography>
       </Popup>

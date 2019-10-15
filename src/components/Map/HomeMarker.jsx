@@ -11,7 +11,7 @@ function HomeMarker({ splytHQ }) {
     <Marker position={splytHQ.toArray()} icon={SplytIcon}>
       <Popup>
         <HomeIcon color="primary" fontSize="large" />
-        <Typography variant="h6" color="primary">
+        <Typography variant="subtitle2" component="div" color="primary">
           Splyt HQ
         </Typography>
       </Popup>
