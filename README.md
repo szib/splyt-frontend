@@ -1,3 +1,28 @@
+# Splyt Taxis
+
+## Usage
+
+1. Run `npm install`
+2. Start cors-anywhere proxy in the background: `node server.js &` Note `&` at the end.
+3. Start frontend: `npm start`
+4. Your default browser opens `http:/localhost:3000`
+5. Enjoy. 😎
+
+## Stop servers
+
+1. Stop frontend by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd>
+2. Run `jobs` to see the currently running background tasks
+3. Run `fg %1` if proxy is the first task (probably it is). If not change the `fg` parameter accordingly.
+4. Stop proxy by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd>
+
+---
+
+## Troubleshooting
+
+Proxy cannot be started if its default port (8080) is being used. In that case change the proxy in `package.json` (e.g. `"proxy": "http://localhost:9999"`) and start proxy as `PORT=9999 node server.js &`
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
